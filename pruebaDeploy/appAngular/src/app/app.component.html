@@ -1,0 +1,43 @@
+
+<div class="titulo">
+  <h1>Calcular Sueldo</h1>
+  <h2>Diego Ruan Padilla</h2>
+</div>
+<br>
+<div class="container">
+  
+  <form [formGroup]="sueldoForm" (ngSubmit)="enviar()">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" formControlName="nombre" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="horasTrabajadas">Horas Trabajadas</label>
+      <input type="number" id="horasTrabajadas" formControlName="horasTrabajadas" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="pagoPorHora">Pago por Hora</label>
+      <input type="number" id="pagoPorHora" formControlName="pagoPorHora" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="categoria">Categoría</label>
+      <select id="categoria" formControlName="categoria" class="form-control" required>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Calcular</button>
+  </form>
+
+</div>
+<br>
+<div class="containerRes" *ngIf="resultadoSueldo">
+  <h3>Resultado</h3>
+  <p>Nombre: {{ resultadoSueldo.nombre }}</p>
+  <p>Categoría: {{ resultadoSueldo.categoria }}</p>
+  <p>Bono: {{ resultadoSueldo.bono }}</p>
+  <p>Sueldo Bruto: {{ resultadoSueldo.sueldoBruto }}</p>
+  <p>Sueldo Neto Antes de Impuestos: {{ resultadoSueldo.sueldoNetoAntesImpuestos }}</p>
+  <p>Sueldo Neto Después de Impuestos: {{ resultadoSueldo.sueldoNetoDespuesImpuestos }}</p>
+</div>
